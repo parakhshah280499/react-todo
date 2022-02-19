@@ -78,7 +78,7 @@
   
   .movement a.all {
       border-color: black;
-      text-decoration: underline;
+      /* text-decoration: underline; */
   }
   
   .div2 {
@@ -86,6 +86,7 @@
       margin-top: 5px;
       display: inline-block;
       width: 80%;
+      padding-bottom: 10px;
   }
   
   .remaining {
@@ -116,51 +117,7 @@
       height: 0;
       width: 0;
   }
-      
-  .checkmark {
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-style: solid;
-      border-width: 2px;
-      height: 25px;
-      width: 25px;
-      background-color: #FFFFFF;
-      
-  }
-  
-  .checkmark:after {
-      content: "";
-      position: absolute;
-      display: none;
-  
-  }
-  
-  .container input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-      }
-  
-  
-  .container input:checked ~ .checkmark:after {
-      display: block;
-  }
-  
-
-  .container .checkmark:after {
-      left: 9px;
-      top: 2px;
-      width: 5px;
-      height: 13px;
-      border: solid black;
-      border-width: 0 3px 3px 0;
-      transform: rotate(45deg);
-      
-  }
-  
+       
   #tex {
       font-family: "sans-serif";
       left:200px;

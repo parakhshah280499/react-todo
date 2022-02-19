@@ -153,7 +153,30 @@ clickCompleted = () => {
 
 }
 
+remainingTasks = () => {
+  // return number of tasks with value same as flag_filters
+  var nos = this.state.todoList.filter( (item) => {
+    if (this.state.flag_filters==='1')
+    {
+      return true;
+    }
 
+    else if (this.state.flag_filters==='2')
+    {
+      if(item.checked===false)
+        return true;
+    }
+    else if (this.state.flag_filters==='3')
+    {
+      if(item.checked===true)
+        return true;
+    }
+
+    
+  })
+  console.log(nos.l);
+  return nos.length;
+}
   render(){
   return (
     <div className="setborder">   
@@ -166,31 +189,18 @@ clickCompleted = () => {
       <div className="div1">
             <div className="movement">
                 <a id="all2" className="all" onClick={this.clickAll()} >All</a>
-                  <a id="activ2" onClick={this.clickActive()}>Active</a>
-                  <a id="comp" onClick={this.clickCompleted()}>Completed</a>
+                  <a id="activ2" className="all" onClick={this.clickActive()}>Active</a>
+                  <a id="comp" className="all" onClick={this.clickCompleted()}>Completed</a>
 
               </div>
 
                 <div id="div2" className="div2">
                     
-                    <p className = "remaining" id="remaining">{remain} tasks remaining</p>
+                    <p className = "remaining" id="remaining">{this.remainingTasks()} tasks remaining</p>
                   </div>
                   </div> 
       
-      {/* this.state.todoList.filter((item => {
-        const {id,checked,label} = item;
-        if(flag_filters==1)
-          return true;
-        else if(flag_filters==2)
-        {
-           return checked === false; 
-        }
-        else if(flag_filters==3)
-        {
-           return checked===true;
-        }
-      }
-      )) */}
+     
       {this.state.todoList.filter( (item) => {
         if(this.state.flag_filters==='1')
         {
@@ -212,7 +222,7 @@ clickCompleted = () => {
         const { id, checked, label } = item;
         return (
           <div id="div2" className="div2">
-           <input type="checkbox"  className="checkbox-checked" value={checked} onChange={this.checkChange(id,checked,label)}></input>
+           <input type="checkbox"  className="checkbox-checked" checked={checked} onChange={this.checkChange(id,checked,label)}></input>
             
             <p style={{marginLeft: "40px",textDecoration:checked ?'line-through':'none'}}>{label}</p>
             <button id="edit_button" className="edit_button" onClick={this.editTask(id,label)} >
