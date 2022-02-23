@@ -10,6 +10,9 @@ var remain = 0;
 var activtasks=0;
 var comtasks=0;
 
+const white = '#FFFFFF';
+const grey = '#DCDCDC';
+
 class App extends React.Component {
   constructor(props)
   {
@@ -21,6 +24,7 @@ class App extends React.Component {
       editid:'',
       tasks_remaining:'',
       flag_filters:'1',
+      color : white,
     }
   }
 
@@ -138,6 +142,9 @@ clickAll = () => {
 clickActive = () => {
   return () => {
     this.setState({flag_filters:'2'});
+    
+    
+
   
   }
   
@@ -147,6 +154,7 @@ clickActive = () => {
 clickCompleted = () => {
   return () => {
     this.setState({flag_filters:'3'});
+
   
   }
   
@@ -187,10 +195,10 @@ remainingTasks = () => {
       <input type="text" id="activ" className="activ" placeholder="Add Task . . ." value={this.state.value} onChange={this.onChange}></input>
       <button id="add" className="add" type="button" onClick = {this.addTask}>Add</button>
       <div className="div1">
-            <div className="movement">
-                <a id="all2" className="all" onClick={this.clickAll()} >All</a>
-                  <a id="activ2" className="all" onClick={this.clickActive()}>Active</a>
-                  <a id="comp" className="all" onClick={this.clickCompleted()}>Completed</a>
+            <div className="movement" >
+                <a id="all2" onClick={this.clickAll()} >All</a>
+                  <a id="activ2" onClick={this.clickActive()}>Active</a>
+                  <a id="comp"  onClick={this.clickCompleted()}>Completed</a>
 
               </div>
 
